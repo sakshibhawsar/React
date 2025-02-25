@@ -1,0 +1,62 @@
+*{
+    margin: 0%;
+}
+body{
+    background-color: silver;
+}
+.title{
+    background-color: dimgray;
+    height: 70px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+.content{
+    display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 74px;
+}
+img{
+ border-radius: 8px;
+ box-shadow: 2px 4px 8px 4px rgb(142, 139, 139);
+}
+.text{
+}
+p{
+    font-size: 20px;
+}
+.skills{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 60px;
+}
+.box{
+    height: 100px;
+    width: 100px;
+    background-color: dimgray;
+    text-align: center;
+    transition: all 1s ease;
+    border-radius: 10px;
+    box-shadow: 2px 4px 8px 4px rgb(142, 139, 139);
+}
+.box:hover{
+    box-shadow: 2px 5px 10px 5px rgb(126, 126, 126);
+    transform: scale(1.1);
+}
+.div{
+    margin-top: 35px;
+}
+.foot{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 80px;
+    background-color: dimgray;
+    height: 50px;
+    font-weight: bold;
+    font-size: 20px;
+}

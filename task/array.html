@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var arr = [11,12,13,14,15,16,17,18,19,20]
+        var modifiedArray = arr.filter((v)=>v%2==0)
+        modifiedArray = modifiedArray.map((v)=>"<li style= color:pink>"+v+"</li>")
+        document.write(modifiedArray.join(" "))
+    </script>
+</body>
+</html>

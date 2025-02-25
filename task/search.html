@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body class="bg-gradient-to-r from-sky-200 to-pink-300 flex items-center justify-center h-screen">
+    <div class="w-80 h-80 bg-gradient-to-r from-violet-200 to-pink-200 rounded-xl shadow-xl">
+        <div class="flex items-center justify-center relative">
+            <i class="fa-solid fa-magnifying-glass absolute ml-48"></i>
+            <input onkeyup="search() " id="field" type="text" placeholder="search here"  class="p-2 focus:outline-none bg-pink-50 w-60 mt-3 rounded-xl mb-2">
+        </div>
+        <h1 id="list" class="text-center"></h1>
+    </div>
+
+    <script>
+         var list= document.getElementById("list")
+         var arr = ["Ram", "Shyam", "Aman", "Pankaj", "Arjun", "Inder", "Varun", "Udit", "Krishna", "Shiva"]
+         arr.map((v)=>{
+            list.innerHTML += v + "<br/>"
+         })
+        function search(){
+      mod=  arr.filter((v)=> v.toLowerCase().startsWith(document.getElementById("field").value))
+            list.innerHTML= mod.join("<br/>")
+        }
+    </script>
+</body>
+</html>

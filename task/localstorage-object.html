@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="uname" type="text" placeholder="Username">
+    <input id="email" type="text" placeholder="Email">
+    <input id="fullname" type="text" placeholder="Fullname">
+    <input id="city" type="text" placeholder="City">
+    <button onclick="studentdetail()">Login</button>
+    <br>
+    <button onclick="data()">Show Student Data</button>
+    <div id="student-data"></div>
+
+    <script>
+          function studentdetail(){
+            var uname = document.getElementById("uname").value
+            var email = document.getElementById("email").value
+            var fullname = document.getElementById("fullname").value
+            var city = document.getElementById("city").value
+            var studentobject={
+                Username:uname,
+                Email:email,
+                Fullname:fullname,
+                City:city
+            }
+            localStorage.setItem("student", JSON.stringify(studentobject))
+          }
+      function data(){
+        var data = localStorage.getItem("student")
+        var student = JSON.parse(data)
+        document.getElementById("student-data").innerHTML = 
+        `<h1>Username: ${student.Username}</h1>
+         <h1>Email: ${student.Email}</h1>
+         <h1>Fullname: ${student.Fullname}</h1>
+         <h1>City: ${student.City}</h1>`
+      }
+    </script>
+</body>
+</html>

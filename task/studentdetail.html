@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style>
+
+        li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-center">
+        <input type="text" onkeyup="filterstudent()" id="student">
+        <input onclick="changeFilterType(1)" type="radio" name="choice" value="1" checked>
+        <label for="">Name</label>
+        <input onclick="changeFilterType(2)" type="radio" name="choice" value="2">
+        <label for="">Surname</label>
+        <input onclick="changeFilterType(3)" type="radio" name="choice" value="3">
+        <label for="">Age</label>
+        <input onclick="changeFilterType(4)" type="radio" name="choice" value="4">
+        <label for="">Address</label>
+    </div>
+    <ul id="list">
+        
+    </ul>
+
+     <script>
+       var student= [
+        {
+            name: "Shyam" ,
+            surname: "Dubey",
+            age: 20,
+            address: "Indore"
+        },
+        {
+            name: "Ram" ,
+            surname: "Verma",
+            age: 19,
+            address: "Bhopal"
+        },{
+            name: "Veer" ,
+            surname: "Pathak",
+            age: 22,
+            address: "Ratlam"
+        },{
+            name: "Shiva" ,
+            surname: "Gupta",
+            age: 25,
+            address: "Ujjain"
+        },{
+            name: "Krishna" ,
+            surname: "Dubey",
+            age: 22,
+            address: "Khargone"
+        },{
+            name: "Abhijeet" ,
+            surname: "Sharma",
+            age: 18,
+            address: "Dewas"
+        },
+        {
+            name: "Rahul" ,
+            surname: "Sharma",
+            age: 24,
+            address: "Vidisa"
+        }   
+       ]
+       var listElement = document.getElementById("list")
+       var check = 1
+       setModifiedDataInList(student)
+       function changeFilterType(checkVlaue) {
+        check = checkVlaue
+       }
+
+       function filterstudent(){
+        var inputvalue = document.getElementById("student")
+          .value.toLowerCase()
+          var modified = student.filter(
+            (student) =>{
+                if(check==1){
+                   return student.name.toLowerCase().startsWith(inputvalue)
+                }
+                if(check==2){
+                   return student.surname.toLowerCase().startsWith(inputvalue)
+                }
+                if(check==3){
+                   return student.age ==inputvalue
+                }
+                if(check==4){
+                   return student.address.toLowerCase().startsWith(inputvalue)
+                }
+                return true
+            }
+          )
+          setModifiedDataInList(modified)
+       }
+       function setModifiedDataInList (modifiedarray){
+        listElement.innerHTML = modifiedarray.map((v) =>
+        "<li><h2>Name:" 
+            +v.name
+            + " Surname:" 
+            +v.surname
+            + "</h2><h3>Age:" 
+            +v.age+ "</h3><h4>Address:" 
+            +v.address+ "</h4></li>"
+        ).join(" ")
+       }
+     </script>
+</body>
+</html>

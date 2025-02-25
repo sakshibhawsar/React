@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-violet-500 flex items-center justify-center h-screen">
+    <div class="bg-violet-400 max-w-md rounded-xl p-8 shadow-2xl shadow-violet-600">
+        <h1 class="text-center text-3xl mb-8">Calculator</h1>
+        <div class="ml-8">
+            <label for="Number" class="text-2xl">Number</label>
+            <input type="text" id="num1" class="bg-gray-300 p-2 mb-5 rounded-2xl focus:outline-none px-6">
+            <label for="Number2" class="text-2xl">Number</label>
+            <input type="text" id="num2" class="bg-gray-300 p-2 rounded-2xl focus:outline-none px-6">
+        </div>
+        <div class="flex justify-evenly items-center pt-5">
+                <button onclick="add()" class="bg-violet-300 p-4 rounded-lg text-2xl hover:bg-indigo-400">+</button> 
+                <button onclick="sub()" class="bg-violet-300 p-4 rounded-lg text-2xl hover:bg-indigo-400">-</button>
+                <button onclick="mul()" class="bg-violet-300 p-4 rounded-lg text-2xl hover:bg-indigo-400">*</button>
+                <button onclick="div()" class="bg-violet-300 p-4 rounded-lg text-2xl hover:bg-indigo-400">/</button>
+        </div>
+        <h1 id="result" class="text-center text-2xl mt-4"></h1>
+    </div>
+
+    <script>
+        function add(){
+            let num1,num2,result;
+            num1=document.getElementById("num1")
+            num2=document.getElementById("num2")
+            result=document.getElementById("result")
+            result.innerHTML = parseInt(num1.value)+parseInt(num2.value)
+            num1.value=""
+            num2.value=""
+        }
+        function sub(){
+            let num1,num2,result;
+            num1=document.getElementById("num1")
+            num2=document.getElementById("num2")
+            result=document.getElementById("result")
+            result.innerHTML = parseInt(num1.value)-parseInt(num2.value)
+            num1.value=""
+            num2.value=""
+        }
+        function mul(){
+            let num1,num2,result;
+            num1=document.getElementById("num1")
+            num2=document.getElementById("num2")
+            result=document.getElementById("result")
+            result.innerHTML = parseInt(num1.value)*parseInt(num2.value)
+            num1.value=""
+            num2.value=""
+        }
+        function div(){
+            let num1,num2,result;
+            num1=document.getElementById("num1")
+            num2=document.getElementById("num2")
+            result=document.getElementById("result")
+            result.innerHTML = parseInt(num1.value)/parseInt(num2.value)
+            num1.value=""
+            num2.value=""
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-900">
+  <div class="bg-gray-800 p-8 rounded-2xl shadow-lg w-96 ">
+  <h1 class="text-white text-3xl font-bold text-center mb-6">Registration</h1>
+  <div class="relative mb-6">
+    <span class="absolute inset-y-0 left-3 flex items-center bg-gray-700">
+      <i class="fa-solid fa-user text-teal-400"></i>
+    </span>
+    <input type="text" placeholder="username" class="w-full pl-10 p-3 rounded-lg bg-gray-700 text-white outline-none focus:ring-2 focus:ring-teal-400" id="uname" required> 
+    </div>
+    <div class="relative mb-6">
+      <span class="absolute inset-y-0 left-3 flex items-center bg-gray-700">
+        <i class="fa-solid fa-lock text-teal-400"></i>
+      </span>
+      <input type="password" placeholder="password" class="w-full pl-10 p-3 rounded-lg bg-gray-700 text-white outline-none focus:ring-2 focus:ring-teal-400" id="pwd" required>
+    </div>
+    <div class="relative mb-6">
+      <span class="absolute inset-y-0 left-3 flex items-center bg-gray-700">
+        <i class="fa-solid fa-envelope text-teal-400"></i>
+      </span>
+      <input type="text" placeholder="email" class=" w-full pl-10 p-3 rounded-lg bg-gray-700 text-white outline-none focus:ring-2 focus:ring-teal-400" id="eml" required>
+    </div>
+    <div class="text-center mb-4">
+    <label class="text-white text-lg"><input type="radio" name="role" class="accent-teal-400" id="ad" onclick="forwhat('admin')"> Admin</label> &nbsp;
+    <label class="text-white text-lg"><input type="radio" name="role" class="accent-teal-400" id="stu" onclick="forwhat('student')"> Student</label>
+    </div>
+    <button onclick="register()" class=" w-full bg-teal-500 hover:bg-teal-400 text-white py-3 rounded-lg text-lg font-semibold transition-all cursor-pointer">Register</button>
+</div>
+
+    <script>
+       var reg=[]
+       var forwhat;
+       function forwhat(role){
+         forwhat = role;
+       }
+         function register(){
+              var uname = document.getElementById("uname").value
+              var pwd = document.getElementById("pwd").value
+              var eml = document.getElementById("eml").value
+              var obj = {
+                username:uname,
+                password:pwd,
+                email:eml,
+                role:forwhat                
+              }
+              if(uname==""){
+                alert("Please fill username first")
+                return
+              }
+              if(pwd==""){
+               alert("Please fill password first")
+                return
+              }
+              if(eml==""){
+            ("Please fill email first")
+                return
+              }
+              reg.push(obj)
+              localStorage.setItem("register",JSON.stringify(reg))
+              document.getElementById("ad").checked = false
+              document.getElementById("stu").checked = false
+              window.location.href="login.html"
+         }
+    </script>
+</body>
+</html>
