@@ -14,7 +14,7 @@ const create = async (req, res) => {
     let todoModel = new todo(req.body)
     let result = await todoModel.save()
     if(result){
-        res.send("Todo created successfully")
+        res.json(result)
     }
     else{
         res.status(400).send("Failed to create todo")
@@ -35,9 +35,9 @@ const findById = async (req, res) => {
 const update = async (req, res) => {
     let id = req.params.id
     try{
-        let updatedtodo = await todo.findByIdAndUpdate(id,req.body)
+        let updatedtodo = await todo.findByIdAndUpdate(id,req.body, {new: true})
         if(updatedtodo){
-            res.send("Todo updated successfully")
+            res.json("Todo updated successfully", updatedtodo)
         }
         else{
             res.status(400).send("Failed to update todo")

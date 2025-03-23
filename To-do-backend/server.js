@@ -2,9 +2,11 @@ import express from "express"
 
 import { connectDB } from "./mongo-DB/connection.js"
 import routes from "./routes-1.js"
+import cors from "cors"
 
 let app = express()
 app.use(express.json())
+app.use(cors())
 
 app.use("/todo", routes)
 
