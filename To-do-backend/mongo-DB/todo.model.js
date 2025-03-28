@@ -8,7 +8,7 @@ const todoSchema = new mongoose.Schema({
         type: String
     }
 }, {
-    timestamps: true
+    timestamps: true // this will add created_at and updated_at timestamps
 })
 
 export const todo = mongoose.model("todo", todoSchema)

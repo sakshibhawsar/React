@@ -2,10 +2,10 @@ import express, {json} from "express"
 import { todo } from "./mongo-DB/todo.model.js"
 import todoController from "./controller/todoController.js"
 
-let routes = express.Router()
+let routes = express.Router() // this is the middleware
 var Todo1 = []
 
-routes.route("")
+routes.route("") 
 .get(todoController.getAll)
 .post(todoController.create)
 

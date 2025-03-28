@@ -21,7 +21,7 @@ const create = async (req, res) => {
     }
 }
 
-const findById = async (req, res) => {
+const findById = async (req, res) => { 
     let id = req.params.id
     let result = await todo.findById(id)
     if(result){
@@ -30,7 +30,7 @@ const findById = async (req, res) => {
     else{
         res.status(400).send("Todo not found")
     }
-}
+} // this is the controller function
 
 const update = async (req, res) => {
     let id = req.params.id

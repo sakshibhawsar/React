@@ -8,7 +8,7 @@ let app = express()
 app.use(express.json())
 app.use(cors())
 
-app.use("/todo", routes)
+app.use("/todo", routes) // this is the middleware
 
 connectDB().then(()=>{
     app.listen(4752, () => console.log("Server started at 4752"))
